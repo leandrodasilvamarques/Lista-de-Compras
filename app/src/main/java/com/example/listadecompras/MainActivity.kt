@@ -22,11 +22,11 @@ class MainActivity : AppCompatActivity() {
             val produto = binding.edtNomeProduto.text.toString()
 
             if (produto.isNotBlank()){
-                binding.txtAvisoValorInvalido.text = ""
                 produtosAdapter.add(produto)
+                binding.edtNomeProduto.text.clear()
             }
             else {
-                binding.txtAvisoValorInvalido.text = "Insira um valor valido"
+                binding.edtNomeProduto.error = "Insira um valor valido"
             }
         }
     }
