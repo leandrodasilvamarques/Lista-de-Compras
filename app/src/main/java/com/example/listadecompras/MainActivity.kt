@@ -1,6 +1,8 @@
 package com.example.listadecompras
 
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import com.example.listadecompras.databinding.ActivityMainBinding
@@ -24,10 +26,17 @@ class MainActivity : AppCompatActivity() {
             if (produto.isNotBlank()){
                 produtosAdapter.add(produto)
                 binding.edtNomeProduto.text.clear()
-            }
-            else {
+            } else {
                 binding.edtNomeProduto.error = "Insira um valor valido"
             }
+        }
+
+        binding.listViewProdutos.setOnItemLongClickListener {
+            adapterView: AdapterView<*>, view: View, position: Int, id: Long ->
+
+            val itemAExcluir = produtosAdapter.getItem(position)
+            produtosAdapter.remove(itemAExcluir)
+            true
         }
     }
 }
