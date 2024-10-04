@@ -9,26 +9,28 @@
     android:padding="20px"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/edt_nome_produto"
-        android:layout_marginTop="20dp"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nome do novo produto"
-        />
-
-    <Button
-        android:id="@+id/btn_inserir"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Inserir"
+        android:text="TOTAL: 0,00"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:id="@+id/valor_total"
         />
 
     <ListView
-        android:id="@+id/list_view_produtos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/list_view_produtos"
         />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_input_add"
+        android:id="@+id/btn_adicionar_itens"
+        />
 
 </LinearLayout>

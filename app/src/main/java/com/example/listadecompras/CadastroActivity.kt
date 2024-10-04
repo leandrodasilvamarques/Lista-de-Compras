@@ -5,16 +5,29 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.listadecompras.databinding.ActivityCadastroBinding
 
 class CadastroActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityCadastroBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_cadastro)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        binding = ActivityCadastroBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.cadastroBtnInserir.setOnClickListener() {
+//            val imagem = binding.cadastroImage.ima
+            val produto = binding.cadastroNomeProduto.text.toString()
+            val quantidade = binding.cadastroQuantidade.text
+            val valor = binding.cadastroValor.text
+
+            if (produto.isNotBlank()){
+
+                binding.cadastroNomeProduto.text.clear()
+            } else {
+                binding.cadastroNomeProduto.error = "Insira um valor valido"
+            }
         }
+
     }
 }

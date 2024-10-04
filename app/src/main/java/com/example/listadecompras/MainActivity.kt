@@ -1,5 +1,6 @@
 package com.example.listadecompras
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -20,15 +21,9 @@ class MainActivity : AppCompatActivity() {
             android.R.layout.simple_expandable_list_item_1)
         binding.listViewProdutos.adapter = produtosAdapter
 
-        binding.btnInserir.setOnClickListener() {
-            val produto = binding.edtNomeProduto.text.toString()
-
-            if (produto.isNotBlank()){
-                produtosAdapter.add(produto)
-                binding.edtNomeProduto.text.clear()
-            } else {
-                binding.edtNomeProduto.error = "Insira um valor valido"
-            }
+        binding.btnAdicionarItens.setOnClickListener{
+            val intent = Intent(this, CadastroActivity::class.java)
+            startActivity(intent)
         }
 
         binding.listViewProdutos.setOnItemLongClickListener {
